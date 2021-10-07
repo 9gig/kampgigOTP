@@ -1,0 +1,12 @@
+{{#if error}}
+<p>{{error}}</p>
+{{/if}}
+
+<p>Verification Code has been sent, Check your inbox</p>
+<p>Enter the code that was sent to you.</p>
+<form action="/sendCode", method="POST">
+<input  name="name", value="Olari" />
+<input type="text" name="code" value = "4567" />
+<input type="text" name="to" value = "2349011151246" />
+<input type="submit" value="Verify Code">
+</form>
