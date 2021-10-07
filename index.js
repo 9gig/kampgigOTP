@@ -2,7 +2,7 @@ var express = require('express');
 var hbs = require('express-handlebars');
 var bodyparser = require('body-parser');
 var cors  = require('cors');
-let port    = process.env.PORT || 8282
+let port    = process.env.PORT || 80
 const Vonage = require('@vonage/server-sdk');
 const vonage = new Vonage({
   apiKey: "b70129ad",
@@ -55,7 +55,7 @@ vonage.message.sendSms(from, to, text, (err, responseData) => {
     } else {
         if(responseData.messages[0]['status'] === "0") {
             console.log("Message sent successfully.");
-            res.send('<p> An OTP has been sent to</p>' + to)
+            res.send('Valid')
         } else {
             console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
             res.send(`Message failed with error: ${responseData.messages[0]['error-text']}`);
